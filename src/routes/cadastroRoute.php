@@ -38,7 +38,7 @@ return function (App $app) {
         $conection=$container->get("pdo");
         $params=$request->getParsedBody(); 
         
-        $sql='INSERT INTO veiculo_patio (placa, marca_veiculo, modelo_veiculo) VALUES("'.$params['placa'].'", "'.$params['marca_veiculo'].'","'.$params['modelo_veiculo'].'") ';
+        $sql='INSERT INTO veiculo_patio (placa, marca_veiculo, modelo_veiculo, tipo) VALUES("'.$params['placa'].'", "'.$params['marca_veiculo'].'","'.$params['modelo_veiculo'].'", "'.$params['tipo'].'") ';
         
         
         $conection->query($sql)->fetchAll();
