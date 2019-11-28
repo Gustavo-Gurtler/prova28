@@ -37,5 +37,9 @@ $routes($app);
 $routes = require __DIR__ . '/../src/routes/consultaRoute.php';
 $routes($app);
 
+// Editar veículo route
+$routes = require __DIR__ . '/../src/routes/editarRoute.php';
+$routes($app);
+
 // Run app
 $app->run();
