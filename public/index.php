@@ -33,5 +33,9 @@ $routes($app);
 $routes = require __DIR__ . '/../src/routes/cadastroRoute.php';
 $routes($app);
 
+// Consulta veículo route
+$routes = require __DIR__ . '/../src/routes/consultaRoute.php';
+$routes($app);
+
 // Run app
 $app->run();
