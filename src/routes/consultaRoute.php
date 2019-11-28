@@ -14,13 +14,9 @@ return function (App $app) {
 
         $conection=$container->get('pdo');
 
-        $sql = 'SELECT placa, modelo_veiculo, marca_veiculo, tipo_veiculo.tipo FROM veiculo_patio INNER JOIN tipo_veiculo WHERE veiculo_patio.tipo = tipo_veiculo.id';
+        $sql = 'SELECT veiculo_patio.id, placa, modelo_veiculo, marca_veiculo, tipo_veiculo.tipo FROM veiculo_patio INNER JOIN tipo_veiculo WHERE veiculo_patio.tipo = tipo_veiculo.id';
 
         $args['veiculos']=$conection->query($sql)->fetchAll();
-
-        print_r($args['veiculos']);
-
-        exit;
 
         // Render index view
         return $container->get('renderer')->render($response, 'consulta.phtml', $args);

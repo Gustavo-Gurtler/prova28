@@ -37,24 +37,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <?php 
+                foreach ($veiculos as $key => $value) {
+                    echo'
+                    <tr>
+                        <th scope="row">'.$veiculos[$key]['id'].'</th>
+                        <td>'.$veiculos[$key]['tipo'].'</td>
+                        <td>'.$veiculos[$key]['marca_veiculo'].'</td>
+                        <td>'.$veiculos[$key]['modelo_veiculo'].'</td>
+                        <td>'.$veiculos[$key]['placa'].'</td>
+                    </tr>
+                                     
+                    ';
+                }
+                
+                ?>
             </tbody>
         </table>
 
