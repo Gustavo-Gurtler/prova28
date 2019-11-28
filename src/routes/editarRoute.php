@@ -61,7 +61,7 @@ return function (App $app) {
 
         $params = $request->getParsedBody();
 
-        $sql = 'UPDATE veiculo_patio SET placa = ' . $params['placa'] . ', modelo_veiculo = ' . $params['modelo_veiculo'] . ', marca_veiculo = ' . $params['marca_veiculo'] . ',tipo= ' . $params['tipo'] . ' WHERE id = ' . $params['veiculo'];
+        $sql = 'UPDATE veiculo_patio SET placa = "' . $params['placa'] . '", modelo_veiculo = "' . $params['modelo_veiculo'] . '", marca_veiculo = "' . $params['marca_veiculo'] . '",tipo= ' . $params['tipo'] . ' WHERE id = ' . $params['veiculo'];
 
         $conection->query($sql)->fetchAll();
 
