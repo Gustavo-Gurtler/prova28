@@ -20,7 +20,7 @@
     <div class="container mt-5">
 
         <div class="input-group mb-3 p-0 justify-content-center">
-            <h1 class="text-center"> Cadastrar Veículo</h1>
+            <h1 class="text-center"> Editar Veículo</h1>
             <div class="col-12">
 
                 <form method="get" action="/editar-veiculo/">
@@ -34,7 +34,7 @@
             <form method="post" action="/editar-veiculo/" class="col-10">
 
                 <!-- envia o id pro front -->            
-                <input name="veiculo" type="hidden" value="<? echo $id_veiculo ?>">
+                <input name="veiculo" type="hidden" value="<?php echo $id_veiculo; ?>">
 
                 <!-- Input tipo do veículo -->
                 <div class="input-group mb-3 mt-5">
