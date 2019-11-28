@@ -14,6 +14,17 @@ return function (App $app) {
 
         $conection = $container->get('pdo');
 
+
+        if (isset($_GET['deletar'])) {
+            $sql = 'DELETE FROM veiculo_patio WHERE id = ' . $_GET['deletar'];
+
+            $conection->query($sql)->fetchAll();
+
+            // Render index view
+            return $response->withRedirect('/editar-veiculo/');
+        };
+
+
         $sql = "SELECT * FROM tipo_veiculo";
 
         $args["tipo"] = $conection->query($sql)->fetchAll();
@@ -25,8 +36,8 @@ return function (App $app) {
         $args['marca_veiculo'] = '';
 
         $args['modelo_veiculo'] = '';
-        
-       
+
+
         if (isset($_GET['id'])) {
 
 
@@ -41,10 +52,8 @@ return function (App $app) {
             $args['marca_veiculo'] = $resultSet[0]['marca_veiculo'];
 
             $args['modelo_veiculo'] = $resultSet[0]['modelo_veiculo'];
-            
+
             $args['tipoID'] = $resultSet[0]['id'];
-
-
         }
 
 
@@ -71,22 +80,6 @@ return function (App $app) {
         return $response->withRedirect('/editar-veiculo/');
     });
 
-    $app->delete('/editar-veiculo/[{action}]', function (Request $request, Response $response, array $args) use ($container) {
-
-        // Sample log message
-        $container->get('logger')->info("Slim-Skeleton '/editar-veiculo/' route");
-
-        $conection = $container->get('pdo');
-
-      
-
-        $sql = 'DELETE FROM veiculo_patio WHERE id = '.$_GET['deletar'];
-
-        $conection->query($sql)->fetchAll();
-
-
-
-        // Render index view
-        return $response->withRedirect('/editar-veiculo/');
-    });
+   
+   
 };
