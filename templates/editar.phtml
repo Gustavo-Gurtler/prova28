@@ -34,7 +34,7 @@
             <form method="post" action="/editar-veiculo/" class="col-10">
 
                 <!-- envia o id pro front -->            
-                <input name="veiculo" type="hidden" value="<? if (isset($id_veiculo)) echo $id_veiculo ?>">
+                <input name="veiculo" type="hidden" value="<? echo $id_veiculo ?>">
 
                 <!-- Input tipo do veículo -->
                 <div class="input-group mb-3 mt-5">
@@ -46,7 +46,7 @@
                         <?php
                         foreach ($tipo as $key => $value) {
                             $selecionado = "";
-                            if (isset($veiculo) && $veiculo[0]['tipo'] == $tipo[$key]["tipo"]) $selecionado = 'selected';
+                            if ( $tipoID == $tipo[$key]["id"]) {$selecionado = 'selected';}
                             echo ' <option ' . $selecionado . ' value="' . $tipo[$key]["id"] . '">' . $tipo[$key]["tipo"] . '</option>';
                         }
                         ?>
@@ -59,7 +59,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Placa do Veículo</span>
                     </div>
-                    <input type="text" name="placa" value="<?php if (isset($veiculo)) echo $veiculo[0]["placa"] ?>" class="form-control" placeholder="EXP-7686 " aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="placa" value="<?php  echo $placa; ?>" class="form-control" placeholder="EXP-7686 " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
 
                 <!-- Input marca  -->
@@ -67,14 +67,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Marca Veículo</span>
                     </div>
-                    <input type="text" name="marca_veiculo" value="<?php if (isset($veiculo)) echo $veiculo[0]["marca_veiculo"] ?>" class="form-control" placeholder="Fiat" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="marca_veiculo" value="<?php echo $marca_veiculo ?>" class="form-control" placeholder="Fiat" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <!-- input modelo  -->
                 <div class="input-group mb-3 mt-2">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Modelo Veículo</span>
                     </div>
-                    <input type="text" name="modelo_veiculo" value="<?php if (isset($veiculo)) echo $veiculo[0]["modelo_veiculo"] ?>" class="form-control" placeholder="Mobi " aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="modelo_veiculo" value="<?php echo $modelo_veiculo?>" class="form-control" placeholder="Mobi " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <button type="submit">Editar</button>
             </form>

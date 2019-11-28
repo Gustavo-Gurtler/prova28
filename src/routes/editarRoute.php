@@ -18,14 +18,34 @@ return function (App $app) {
 
         $args["tipo"] = $conection->query($sql)->fetchAll();
 
+        $args['id_veiculo'] = '';
+
+        $args['placa'] = '';
+
+        $args['marca_veiculo'] = '';
+
+        $args['modelo_veiculo'] = '';
+        
+        $args['tipo'] = '';
+
         if (isset($_GET['id'])) {
 
 
-            $sql = 'SELECT  placa, modelo_veiculo, marca_veiculo, tipo_veiculo.tipo, tipo_veiculo.id FROM veiculo_patio INNER JOIN tipo_veiculo WHERE veiculo_patio.tipo = tipo_veiculo.id AND veiculo_patio.id = ' . $_GET['id'];
+            $sql = 'SELECT  placa, modelo_veiculo, marca_veiculo, tipo_veiculo.id FROM veiculo_patio INNER JOIN tipo_veiculo WHERE veiculo_patio.tipo = tipo_veiculo.id AND veiculo_patio.id = ' . $_GET['id'];
 
-            $args['veiculo'] = $conection->query($sql)->fetchAll();
+            $resultSet = $conection->query($sql)->fetchAll();
 
             $args['id_veiculo'] = $_GET['id'];
+
+            $args['placa'] = $resultSet[0]['placa'];
+
+            $args['marca_veiculo'] = $resultSet[0]['marca_veiculo'];
+
+            $args['modelo_veiculo'] = $resultSet[0]['modelo_veiculo'];
+            
+            $args['tipoID'] = $resultSet[0]['id'];
+
+
         }
 
 
@@ -39,10 +59,10 @@ return function (App $app) {
         $container->get('logger')->info("Slim-Skeleton '/editar-veiculo/' route");
 
         $conection = $container->get('pdo');
-         
+
         $params = $request->getParsedBody();
 
-        $sql = 'UPDATE veiculo_patio SET placa = '.$params['placa'].', modelo_veiculo = '.$params['modelo_veiculo'].', marca_veiculo = '.$params['marca_veiculo'].',tipo= '.$params['tipo'].' WHERE id = '.$params['veiculo'];
+        $sql = 'UPDATE veiculo_patio SET placa = ' . $params['placa'] . ', modelo_veiculo = ' . $params['modelo_veiculo'] . ', marca_veiculo = ' . $params['marca_veiculo'] . ',tipo= ' . $params['tipo'] . ' WHERE id = ' . $params['veiculo'];
 
         $conection->query($sql)->fetchAll();
 
