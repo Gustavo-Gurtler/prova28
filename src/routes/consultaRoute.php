@@ -16,7 +16,7 @@ return function (App $app) {
 
         $sql = 'SELECT placa, modelo_veiculo, marca_veiculo, tipo_veiculo.tipo FROM veiculo_patio INNER JOIN tipo_veiculo WHERE veiculo_patio.tipo = tipo_veiculo.id';
 
-        $args['veiculos']=$conection->query($sql);
+        $args['veiculos']=$conection->query($sql)->fetchAll();
 
         print_r($args['veiculos']);
 
