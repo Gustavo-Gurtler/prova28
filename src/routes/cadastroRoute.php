@@ -12,6 +12,15 @@ return function (App $app) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/cadastroVeiulo/' route");
 
+        $conection=$container->get("pdo");
+        
+        $sql="SELECT * FROM tipo_veiculo";
+        
+        $args["tipo"]= $conection->query($sql)->fetchAll();
+
+        
+
+    
 
 
         // Render index view

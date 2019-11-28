@@ -23,7 +23,7 @@ return function (App $app) {
     $container['pdo'] = function ($c) {
         // better load the settings with $container->get('settings')
         $host = '127.0.0.1';
-        $dbname = 'prova_detran';
+        $dbname = 'patio_detran';
         $username = 'root';
         $password = '';
         $charset = 'utf8';

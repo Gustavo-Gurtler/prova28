@@ -19,21 +19,54 @@
             <a class="navbar-brand ml-4" href="/">Home Pátio</a>
         </nav>
     </header>
-  <div class="container mt-5">
-      <div class="col-12"> <h1>asdasdasd</h1> </div>
-    <div class="input-group mb-3 p-0 justify-content-center">
-        <form method="post" class="col-10" enctype="multipart/form-data">
+    <div class="container mt-5">
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+        <div class="input-group mb-3 p-0 justify-content-center">
+            <form method="post" action="/cadastroVeiculo/" class="col-10">
+                <h1 class="text-center"> Cadastrar Veículo</h1>
+                <!-- Input tipo do veículo -->
+                <div class="input-group mb-3 mt-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Tipo do Veículo</span>
+                    </div>
+                   <select name="tipo">
+                       
+                   <?php 
+                    foreach ($tipo as $key => $value) {
+                        echo' <option value="'.$tipo[$key]["id"].'">'.$tipo[$key]["tipo"].'</option>';
+                    }
+                   ?>
+                
+                   </select>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
+
+                <!-- Placa do veículo  -->
+                <div class="input-group mb-3 mt-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Placa do Veículo</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="EXP-7686 " aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+
+                <!-- Input marca  -->
+                <div class="input-group mb-3 mt-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Marca Veículo</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Fiat" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <!-- input modelo  -->
+                <div class="input-group mb-3 mt-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Modelo Veículo</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Mobi " aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <button type="submit"></button>
+            </form>
+        </div>
     </div>
-    </form>
-    </div>
-    
+
 </body>
 
 </html>
