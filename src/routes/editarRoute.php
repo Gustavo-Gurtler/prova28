@@ -26,8 +26,7 @@ return function (App $app) {
 
         $args['modelo_veiculo'] = '';
         
-        $args['tipo'] = '';
-
+       
         if (isset($_GET['id'])) {
 
 
