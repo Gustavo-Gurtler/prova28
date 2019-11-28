@@ -77,6 +77,12 @@
                     <input type="text" name="modelo_veiculo" value="<?php echo $modelo_veiculo?>" class="form-control" placeholder="Mobi " aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <button type="submit">Editar</button>
+
+
+            </form>
+            <form method="delete" action="/editar-veiculo/">  
+            <button type="submit">DELETAR</button>
+                <input name="deletar" type="hidden" value="<?php echo $id_veiculo; ?>">         
             </form>
         </div>
     </div>

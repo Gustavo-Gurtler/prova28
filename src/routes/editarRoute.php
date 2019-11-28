@@ -70,4 +70,23 @@ return function (App $app) {
         // Render index view
         return $response->withRedirect('/editar-veiculo/');
     });
+
+    $app->delete('/editar-veiculo/[{action}]', function (Request $request, Response $response, array $args) use ($container) {
+
+        // Sample log message
+        $container->get('logger')->info("Slim-Skeleton '/editar-veiculo/' route");
+
+        $conection = $container->get('pdo');
+
+      
+
+        $sql = 'DELETE FROM veiculo_patio WHERE id = '.$_GET['deletar'];
+
+        $conection->query($sql)->fetchAll();
+
+
+
+        // Render index view
+        return $response->withRedirect('/editar-veiculo/');
+    });
 };
